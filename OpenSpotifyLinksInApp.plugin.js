@@ -72,7 +72,7 @@ module.exports = (_ => {
 		}
 	} : (([Plugin, BDFDB]) => {
 		const urls = {
-			spotify: ["https://spotify.", "https://help.spotify."]
+			spotify: ["https://spotify.", "https://help.spotify.", "https://open.spotify."]
 		};
 		
 		return class OpenSpotifyLinksInApp extends Plugin {
