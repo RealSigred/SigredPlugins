@@ -2,7 +2,7 @@
  * @name OpenSpotifyLinksInApp
  * @author RealSigred
  * @authorId 612191995179565067
- * @version 1.1.5
+ * @version 1.1.6
  * @description Opens Spotify Links in Spotify instead of your Browser
  * @invite W5acDaMNr8
  * @website https://sigred.ml/
@@ -15,7 +15,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "OpenSpotifyLinksInApp",
 			"author": "RealSigred",
-			"version": "1.1.5",
+			"version": "1.1.6",
 			"description": "Opens Spotify Links in Spotify instead of your Browser"
 		},
 		"changeLog": {
