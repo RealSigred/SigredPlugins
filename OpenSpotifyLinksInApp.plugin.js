@@ -19,8 +19,8 @@ module.exports = (_ => {
 			"description": "Opens Spotify Links in Spotify instead of your Browser"
 		},
 		"changeLog": {
-			"fixed": {
-				"Zoomable Images": "No longer tries to open zoomable Images inside Spotify"
+			"Info": {
+				"Plugin Origin": "OpenSteamLinksInApp by DevilBro"
 			}
 		}
 	};
