@@ -1,26 +1,28 @@
 /**
  * @name OpenSpotifyLinksInApp
- * @author Sigred
+ * @author RealSigred
  * @authorId 612191995179565067
- * @version 1.0.0
+ * @version 1.1.4
  * @description Opens Spotify Links in Spotify instead of your Browser
- * @invite g3PqCYt6dm
- * @website bamboostudios.xyz
- * @source https://github.com/RealSigred/SigredPlugins
- * @updateUrl https://raw.githubusercontent.com/RealSigred/SigredPlugins/main/OpenSpotifyLinksInApp.plugin.js
+ * @invite Jx3TjNS
+ * @donate https://www.paypal.me/MircoWittrien
+ * @patreon https://www.patreon.com/MircoWittrien
+ * @website https://mwittrien.github.io/
+ * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/OpenSteamLinksInApp/
+ * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Plugins/OpenSteamLinksInApp/OpenSteamLinksInApp.plugin.js
  */
 
- module.exports = (_ => {
+module.exports = (_ => {
 	const config = {
 		"info": {
 			"name": "OpenSpotifyLinksInApp",
-			"author": "Sigred",
-			"version": "1.0.0",
+			"author": "RealSigred",
+			"version": "1.1.4",
 			"description": "Opens Spotify Links in Spotify instead of your Browser"
 		},
 		"changeLog": {
 			"fixed": {
-				"HTTP Links": "Also works with http links and not only with https links"
+				"Zoomable Images": "No longer tries to open zoomable Images inside Spotify"
 			}
 		}
 	};
@@ -30,7 +32,7 @@
 		getAuthor () {return config.info.author;}
 		getVersion () {return config.info.version;}
 		getDescription () {return "Do not use LightCord!";}
-		load () {BdApi.alert("Attention!", "By using LightCord you are risking your Discord Account, due to using a 3rd Party Client. Switch to an official Discord Client (https://discord.com/) with the proper BD Injection (https://betterdiscord.app/) btw betterdiscord is best :)");}
+		load () {BdApi.alert("Attention!", "By using LightCord you are risking your Discord Account, due to using a 3rd Party Client. Switch to an official Discord Client (https://discord.com/) with the proper BD Injection (https://betterdiscord.app/)");}
 		start() {}
 		stop() {}
 	} : !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
@@ -72,14 +74,16 @@
 		}
 	} : (([Plugin, BDFDB]) => {
 		const urls = {
-			spotify: ["https://open.spotify.com.", "https://spotify.com."]
+			spotify: ["https://spotify.", "https://help.spotify."]
 		};
 		
 		return class OpenSpotifyLinksInApp extends Plugin {
 			onLoad () {}
 			
 			onStart () {
-				for (let key in urls) BDFDB.ListenerUtils.add(this, document, "click", BDFDB.ArrayUtils.removeCopies(urls[key].map(url => url.indexOf("http") == 0 ? (url.indexOf("https://") == 0 ? [`a[href^="${url}"]`, `a[href^="${url.replace(/https:\/\//i, "http://")}"]`] : `a[href^="${url}"]`) : `a[href*="${url}"][href*="${key}"]`).flat(10).filter(n => n)).join(", "), e => this.openIn(e, key, e.currentTarget.href));
+				for (let key in urls) BDFDB.ListenerUtils.add(this, document, "click", BDFDB.ArrayUtils.removeCopies(urls[key].map(url => url.indexOf("http") == 0 ? (url.indexOf("https://") == 0 ? [`a[href^="${url}"]`, `a[href^="${url.replace(/https:\/\//i, "http://")}"]`] : `a[href^="${url}"]`) : `a[href*="${url}"][href*="${key}"]`).flat(10).filter(n => n)).join(", "), e => {
+					if (!(e.currentTarget.className && e.currentTarget.className.indexOf(BDFDB.disCN.imagezoom) > -1)) this.openIn(e, key, e.currentTarget.href);
+				});
 			}
 			
 			onStop () {}
@@ -96,7 +100,7 @@
 
 			openInSpotify (url) {
 				BDFDB.LibraryRequires.request(url, (error, response, body) => {
-					if (BDFDB.LibraryRequires.electron.shell.openExternal("spotify:openurl/" + response.request.href));
+					if (BDFDB.LibraryRequires.electron.shell.openExternal("spotify://openurl/" + response.request.href));
 					else BDFDB.DiscordUtils.openLink(response.request.href);
 				});
 			}
