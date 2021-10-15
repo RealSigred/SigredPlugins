@@ -2,10 +2,10 @@
  * @name OpenSpotifyLinksInApp
  * @author RealSigred
  * @authorId 612191995179565067
- * @version 1.1.4
+ * @version 1.1.5
  * @description Opens Spotify Links in Spotify instead of your Browser
- * @invite Jx3TjNS
- * @website https://realsigred.github.io/
+ * @invite W5acDaMNr8
+ * @website https://sigred.ml/
  * @source https://raw.githubusercontent.com/RealSigred/SigredPlugins/main/OpenSpotifyLinksInApp.plugin.js
  * @updateUrl https://github.com/RealSigred/SigredPlugins/blob/main/OpenSpotifyLinksInApp.plugin.js
  */
@@ -15,7 +15,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "OpenSpotifyLinksInApp",
 			"author": "RealSigred",
-			"version": "1.1.4",
+			"version": "1.1.5",
 			"description": "Opens Spotify Links in Spotify instead of your Browser"
 		},
 		"changeLog": {
