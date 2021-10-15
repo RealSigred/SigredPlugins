@@ -5,11 +5,9 @@
  * @version 1.1.4
  * @description Opens Spotify Links in Spotify instead of your Browser
  * @invite Jx3TjNS
- * @donate https://www.paypal.me/MircoWittrien
- * @patreon https://www.patreon.com/MircoWittrien
- * @website https://mwittrien.github.io/
- * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/OpenSteamLinksInApp/
- * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Plugins/OpenSteamLinksInApp/OpenSteamLinksInApp.plugin.js
+ * @website https://realsigred.github.io/
+ * @source https://raw.githubusercontent.com/RealSigred/SigredPlugins/main/OpenSpotifyLinksInApp.plugin.js
+ * @updateUrl https://github.com/RealSigred/SigredPlugins/blob/main/OpenSpotifyLinksInApp.plugin.js
  */
 
 module.exports = (_ => {
